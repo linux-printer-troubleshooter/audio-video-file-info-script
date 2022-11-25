@@ -51,7 +51,7 @@ i_counter=$(( i_counter+1 ));
 
 done;
 echo Audio:$audio_stream_count;echo video:$video_stream_count
-for i in ${bitrate[@]};do echo -ne "Bitrate:"$i;done;
+for i in ${bitrate[@]};do echo  "Bitrate:"$i;done;
 
 #if [[ $audio_stream_count -ne 0 ]];then
 #for i in ${bitrate[@]};do echo -ne "Audio is "$i respectively;done; echo and video"'s"; else echo Audio Stream Not found"!";fi;

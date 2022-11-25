@@ -25,7 +25,7 @@ while [ $i_counter -le $number_of_line ];
 do
 index=$(( i_counter-1 ));
 if [[ "$(cat aggregate_streams | head -n$i_counter | tail -n1 |  awk '{print $3}')" =~ Audio ]];then  audio_stream_count=$(( audio_stream_count+1 ));orig_counter[$index]="Audio";
-tmp1="$(cat aggregate_streams | grep -o -E [0-9]\+" Hz" | sed 's/ /-/g')";
+tmp1="$(cat aggregate_streams | grep -o -E [0-9]\+" Hz" | sed 's/ /-/g' | grep [0-9])";
 bitrate[$index]="$tmp1";
 fi;
 if [[ "$(cat aggregate_streams | head -n$i_counter | tail -n1 |  awk '{print $3}')" =~ Video ]];then video_stream_count=$(( video_stream_count+1 )) ; orig_counter[$index]="Video"

@@ -20,6 +20,8 @@ fi;
 audio_stream_count=0;video_stream_count=0;
 
 number_of_line=$(cat aggregate_streams | wc -l);
+cat aggregate_streams  | awk '{print $2}' | grep -o [0-9]:[0-9] >paste1.txt
+cat aggregate_streams  | awk '{print $3}' | sed 's/://g' >paste2.txt
 i_counter=1;
 while [ $i_counter -le $number_of_line ];
 do
@@ -52,6 +54,8 @@ i_counter=$(( i_counter+1 ));
 done;
 echo audio:$audio_stream_count;echo video:$video_stream_count
 for i in ${bitrate[@]};do if [[ $audio_stream_count -eq 0 ]];then break;fi; echo  "Bitrate:"$i;audio_stream_count=$(( audio_stream_count-1 ));done;
+echo "Stream Map:"
+paste paste1.txt paste2.txt -d ","
 
 #if [[ $audio_stream_count -ne 0 ]];then
 #for i in ${bitrate[@]};do echo -ne "Audio is "$i respectively;done; echo and video"'s"; else echo Audio Stream Not found"!";fi;

@@ -5,7 +5,7 @@ Returns Useful Stats file information about your file from ffmpeg. (resolution, 
 return_info.sh ./My\ \(Mooney\).mkv
 
 Resolution:1920x1080
-Audio:2
+audio:2
 video:1
 Bitrate:48000-Hz
 Bitrate:44100-Hz
